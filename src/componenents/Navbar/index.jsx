@@ -98,7 +98,7 @@ const NavLinkStyles = styled(Link)`
   ${desktop} {
     margin-right: 35px;
     display: inline-block;
-    margin-top: 0;
+    margin-top: 0 !important;
     transition: all 0.3s ease-in-out;
   }
 

@@ -25,7 +25,7 @@ const FooterContainer = styled.footer`
   width: 100%;
   position: fixed;
   bottom: 0;
-  opacity: 1;
+  opacity: 0;
 
   .footer-rights {
     margin-top: 32px;
