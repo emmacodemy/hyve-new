@@ -2,7 +2,6 @@ import { PrimaryButton } from "componenents/Buttons";
 import FormInput from "componenents/FormInput";
 import Navbar from "componenents/Navbar";
 import {
-  defaultTheme,
   desktop,
   HeroSectionWrapper,
   tablets,
