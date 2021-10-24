@@ -11,7 +11,8 @@ import Logo from "../Logo/index.jsx";
 import menuBackgroundImg from "../../assests/images/menubackground.svg";
 import { SecondaryButton } from "../Buttons";
 import Hamburger from "./Hamburger.js";
-import { Link } from "react-router-dom";
+import * as RouterDom from "react-router-dom";
+import { Link } from "react-scroll";
 
 const MenuContainer = styled.div`
   background: transparent;
@@ -109,7 +110,9 @@ const NavLinkStyles = styled(Link)`
 
 const NavLinks = () => (
   <NavList>
-    <NavLinkStyles>opportunity</NavLinkStyles>
+    <NavLinkStyles to="opportunity" spy={true} smooth={true}>
+      opportunity
+    </NavLinkStyles>
     <NavLinkStyles>team</NavLinkStyles>
     <NavLinkStyles>platforms</NavLinkStyles>
     <NavLinkStyles>token</NavLinkStyles>

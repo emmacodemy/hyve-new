@@ -212,7 +212,7 @@ const SectionOpportunityContainer = styled.section`
 `;
 
 const SectionOpportunity = () => (
-  <SectionOpportunityContainer>
+  <SectionOpportunityContainer id="opportunity">
     <div className="mobile-market">
       <div className="mobile-market__counter">
         <div className="mobile-market__inner">
