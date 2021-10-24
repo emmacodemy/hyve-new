@@ -21,14 +21,24 @@ const FooterContainer = styled.footer`
   background: ${defaultTheme.darkBackground};
   background-image: url(${footerBackground});
   background-image: url(${footerBackground}),
-    linear-gradient(90deg, ${defaultTheme.darkBackground}, #2f5572);
+    linear-gradient(90deg, #1f3d53, #2f5572);
   background-size: 40vw, cover;
   width: 100%;
   position: fixed;
   bottom: 0;
   opacity: 0;
 
+  ${tablets} {
+    background-position-x: -14%;
+  }
+
+  ${desktop} {
+    background-size: 12.5vw, cover;
+    background-position-x: 7.2%;
+  }
+
   .footer-rights {
+    margin: 0 auto;
     margin-top: 32px;
 
     div {
@@ -45,7 +55,7 @@ const FootInnerContainer = styled(ContainerWrapper)`
   position: relative;
   z-index: 50;
 
-  div {
+  div:first-child {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -105,6 +115,7 @@ const FooterBrandContainer = styled.div`
     color: ${neutral[100]};
     margin-right: 0;
     margin-bottom: 20px;
+    flex-direction: column;
 
     ${mobile} {
       margin-right: 24px;
@@ -197,10 +208,10 @@ const FooterButton = styled(PrimaryButton)`
   font-size: 14px;
 `;
 
-const Footer = () => {
+const Footer = ({ inView }) => {
   const [email, setEmail] = useState("");
   return (
-    <FooterContainer>
+    <FooterContainer style={{ opacity: inView ? 1 : 0 }}>
       <FootInnerContainer>
         <div>
           <FooterBrandContainer>
@@ -211,7 +222,7 @@ const Footer = () => {
                   <p>HYVE Ltd.</p> <p>First Floor, Providence Complex</p>
                   <p>Providence, Mahe, Seychelles</p>
                 </div>
-                <div class="brand-address-mobile">
+                <div className="brand-address-mobile">
                   <p>HYVE Ltd. First Floor, Providence Complex</p>
                   <p>Providence, Mahe,</p> <p> Seychelles</p>
                 </div>

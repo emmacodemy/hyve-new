@@ -99,4 +99,38 @@ export const GlobalStyle = createGlobalStyle`
     .center-text {
         text-align: center;
     }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0; 
+        transform: translateX(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .fadeIn {
+        animation: fadeIn 2s backwards;
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    .fadeOut {
+      animation-name: fadeOut;
+    }
+
+    .fade-move {
+      transition: transform .3s ease-out;
+    }
 `;

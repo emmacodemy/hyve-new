@@ -8,6 +8,8 @@ import MediaSection from "./SectionMedia";
 import Footer from "componenents/Footer";
 import AboutSection from "./SectionAbout";
 import SectionOpportunity from "./SectionOpportunity";
+import { useInView } from "react-intersection-observer";
+import SectionTeams from "./SectionTeam";
 
 const MainWrapper = styled.main`
   background-repeat: no-repeat;
@@ -29,7 +31,8 @@ const MainWrapper = styled.main`
   }
 
   .footer-fixed {
-    z-index: 10;
+    position: relative;
+    z-index: 200;
   }
 
   .footer-spacing {
@@ -40,17 +43,23 @@ const MainWrapper = styled.main`
   }
 `;
 
-const Home = () => (
-  <MainWrapper>
-    <div className="footer-fixed">
-      <Hero />
-      <MediaSection />
-      <AboutSection />
-      <SectionOpportunity />
-    </div>
-    <div className="footer-spacing"></div>
-    <Footer />
-  </MainWrapper>
-);
+const Home = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+  return (
+    <MainWrapper>
+      <div className="footer-fixed">
+        <Hero />
+        <MediaSection />
+        <AboutSection />
+        <SectionOpportunity />
+        <SectionTeams />
+      </div>
+      <div ref={ref} className="footer-spacing"></div>
+      <Footer inView={inView} />
+    </MainWrapper>
+  );
+};
 
 export default Home;

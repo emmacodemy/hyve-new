@@ -211,65 +211,69 @@ const SectionOpportunityContainer = styled.section`
   }
 `;
 
-const SectionOpportunity = () => (
-  <SectionOpportunityContainer id="opportunity">
-    <div className="mobile-market">
-      <div className="mobile-market__counter">
-        <div className="mobile-market__inner">
-          <p className="mobile-market__value">
-            $<span id="count-up-box-market-value">350</span>B
+const SectionOpportunity = () => {
+  return (
+    <SectionOpportunityContainer id="opportunity">
+      <div className="mobile-market">
+        <div className="mobile-market__counter">
+          <div className="mobile-market__inner">
+            <p className="mobile-market__value">
+              $<span id="count-up-box-market-value">350</span>B
+            </p>
+            <p className="mobile-market__title">ESTIMATED MARKET SIZE</p>
+            <p className="mobile-market__title">2023</p>
+          </div>
+        </div>
+        <div className="mobile-market__size">
+          <div className="mobile-market-size__inner">
+            <p className="mobile-market__value white">
+              $<span id="count-up-box-market-size">100</span>B
+            </p>{" "}
+            <p className="mobile-market__title white no-padding">
+              CURRENT MARKET SIZE
+            </p>
+          </div>
+        </div>
+      </div>
+      <img src={opportunitySmallImage} className="mobile-city-svg" alt="" />
+      <img src={opportunityLargeImage} className="large-city-svg" alt="" />
+      <ContainerWrapper>
+        <div className="opportunity-main-content">
+          <h2
+            data-text="The Opportunity"
+            className="shadowed-title center-text opportunity__header"
+          >
+            The Opportunity
+          </h2>
+          <p className="opportunity__text">
+            Worldwide research and advisory company Gartner assessed that with
+            current platforms not yet ready for the imminent change, people
+            starting to work independently will need platforms with
+            functionality lacking in current solutions.
           </p>
-          <p className="mobile-market__title">ESTIMATED MARKET SIZE</p>
-          <p className="mobile-market__title">2023</p>
+          <ul className="opportunity__list">
+            {staticData.opportunityData.map((opportunity, index) => (
+              <li key={index} className={`opportunity__item`}>
+                <div>
+                  <div className="opportunity__item-icon">
+                    <img src={opportunityIcon} alt="" />
+                  </div>
+                </div>
+                <div className="opportunity__item-content">
+                  <div className="opportunity__item-title">
+                    {opportunity.title}
+                  </div>
+                  <div className="opportunity__item-subtext">
+                    {opportunity.text}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-      <div className="mobile-market__size">
-        <div className="mobile-market-size__inner">
-          <p className="mobile-market__value white">
-            $<span id="count-up-box-market-size">100</span>B
-          </p>{" "}
-          <p className="mobile-market__title white no-padding">CURRENT MARKET SIZE</p>
-        </div>
-      </div>
-    </div>
-    <img src={opportunitySmallImage} className="mobile-city-svg" alt="" />
-    <img src={opportunityLargeImage} className="large-city-svg" alt="" />
-    <ContainerWrapper>
-      <div className="opportunity-main-content">
-        <h2
-          data-text="The Opportunity"
-          className="shadowed-title center-text opportunity__header"
-        >
-          The Opportunity
-        </h2>
-        <p className="opportunity__text">
-          Worldwide research and advisory company Gartner assessed that with
-          current platforms not yet ready for the imminent change, people
-          starting to work independently will need platforms with functionality
-          lacking in current solutions.
-        </p>
-        <ul className="opportunity__list">
-          {staticData.opportunityData.map((opportunity, index) => (
-            <li key={index} className="opportunity__item">
-              <div>
-                <div className="opportunity__item-icon">
-                  <img src={opportunityIcon} alt="" />
-                </div>
-              </div>
-              <div className="opportunity__item-content">
-                <div className="opportunity__item-title">
-                  {opportunity.title}
-                </div>
-                <div className="opportunity__item-subtext">
-                  {opportunity.text}
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </ContainerWrapper>
-  </SectionOpportunityContainer>
-);
+      </ContainerWrapper>
+    </SectionOpportunityContainer>
+  );
+};
 
 export default SectionOpportunity;
