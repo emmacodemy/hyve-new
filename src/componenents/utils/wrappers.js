@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { largeDesktop } from ".";
 import { desktop, mobile, mobileLandscape, tablets } from "./mediaquery";
 
 export const ContainerWrapper = styled.div`
@@ -19,6 +20,10 @@ export const ContainerWrapper = styled.div`
 
   ${desktop} {
     max-width: 1024px;
+  }
+
+  ${largeDesktop} {
+    max-width: 1216px;
   }
 `;
 

@@ -6,6 +6,8 @@ import { desktop, mobile, tablets } from "componenents/utils";
 import Hero from "./Hero";
 import MediaSection from "./SectionMedia";
 import Footer from "componenents/Footer";
+import AboutSection from "./SectionAbout";
+import SectionOpportunity from "./SectionOpportunity";
 
 const MainWrapper = styled.main`
   background-repeat: no-repeat;
@@ -43,6 +45,8 @@ const Home = () => (
     <div className="footer-fixed">
       <Hero />
       <MediaSection />
+      <AboutSection />
+      <SectionOpportunity />
     </div>
     <div className="footer-spacing"></div>
     <Footer />

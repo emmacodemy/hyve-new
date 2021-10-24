@@ -17,6 +17,7 @@ const LogoWrapper = styled(Link)`
       dark ? defaultTheme.headerText : defaultTheme.textColorOnPrimary};
     text-transform: uppercase;
     margin: auto 16px;
+    white-space: nowrap;
   }
 `;
 

@@ -15,6 +15,7 @@ import styled from "styled-components";
 import footerBackground from "../../assests/images/footersvg.svg";
 
 const FooterContainer = styled.footer`
+  display: none;
   padding-top: 64px;
   padding-bottom: 32px;
   background: ${defaultTheme.darkBackground};
