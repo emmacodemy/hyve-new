@@ -171,8 +171,8 @@ const SectionOpportunity = () => (
         </div>
       </div>
     </div>
-    <img src={opportunitySmallImage} className="mobile-city-svg" />
-    <img src={opportunityLargeImage} className="large-city-svg" />
+    <img src={opportunitySmallImage} className="mobile-city-svg" alt="" />
+    <img src={opportunityLargeImage} className="large-city-svg" alt="" />
     <ContainerWrapper>
       <div className="opportunity-main-content">
         <h2 className="shadowed-title center-text">The opportunity</h2>

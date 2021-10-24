@@ -213,90 +213,90 @@ const AboutSection = () => (
         <div className="hyve-features">
           <div className="hyve-feature">
             <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} />
+              <img src={hyveFeatureIcon} alt="" />
             </div>
             <div className="hyve-feature__text">
               Protocol Enabled, for a whole new realm of tasks.
             </div>
             <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} />
+              <img src={hyveFeatureLine} alt="" />
             </div>
           </div>
           <div className="hyve-feature">
             <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} />
+              <img src={hyveFeatureIcon} alt="" />
             </div>
             <div className="hyve-feature__text">
               Protocol Enabled, for a whole new realm of tasks.
             </div>
             <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} />
+              <img src={hyveFeatureLine} alt="" />
             </div>
           </div>
           <div className="hyve-feature">
             <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} />
+              <img src={hyveFeatureIcon} alt="" />
             </div>
             <div className="hyve-feature__text">
               Protocol Enabled, for a whole new realm of tasks.
             </div>
             <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} />
+              <img src={hyveFeatureLine} alt="" />
             </div>
           </div>
           <div className="hyve-feature">
             <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} />
+              <img src={hyveFeatureIcon} alt="" />
             </div>
             <div className="hyve-feature__text">
               Protocol Enabled, for a whole new realm of tasks.
             </div>
             <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} />
+              <img src={hyveFeatureLine} alt="" />
             </div>
           </div>
           <div className="hyve-feature">
             <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} />
+              <img src={hyveFeatureIcon} alt="" />
             </div>
             <div className="hyve-feature__text">
               Protocol Enabled, for a whole new realm of tasks.
             </div>
             <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} />
+              <img src={hyveFeatureLine} alt="" />
             </div>
           </div>
           <div className="hyve-feature">
             <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} />
+              <img src={hyveFeatureIcon} alt="" />
             </div>
             <div className="hyve-feature__text">
               Protocol Enabled, for a whole new realm of tasks.
             </div>
             <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} />
+              <img src={hyveFeatureLine} alt="" />
             </div>
           </div>
           <div className="hyve-feature">
             <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} />
+              <img src={hyveFeatureIcon} alt="" />
             </div>
             <div className="hyve-feature__text">
               Protocol Enabled, for a whole new realm of tasks.
             </div>
             <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} />
+              <img src={hyveFeatureLine} alt="" />
             </div>
           </div>
           <div className="hyve-feature">
             <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} />
+              <img src={hyveFeatureIcon} alt="" />
             </div>
             <div className="hyve-feature__text">
               Protocol Enabled, for a whole new realm of tasks.
             </div>
             <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} />
+              <img src={hyveFeatureLine} alt="" />
             </div>
           </div>
         </div>
