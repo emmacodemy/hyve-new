@@ -37,6 +37,7 @@ const MainWrapper = styled.main`
 
   .footer-spacing {
     height: 580px;
+    background-image: linear-gradient(90deg, #1f3d53, #2f5572);
     ${mobile} {
       height: 585px;
     }

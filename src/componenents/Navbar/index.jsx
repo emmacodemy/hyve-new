@@ -90,6 +90,7 @@ const NavLinkStyles = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 600;
+  cursor: pointer;
 
   &:not(:first-child) {
     margin-top: 32px;
@@ -112,7 +113,9 @@ const NavLinks = () => (
     <NavLinkStyles to="opportunity" spy={true} smooth={true}>
       opportunity
     </NavLinkStyles>
-    <NavLinkStyles>team</NavLinkStyles>
+    <NavLinkStyles to="team" spy={true} smooth={true}>
+      team
+    </NavLinkStyles>
     <NavLinkStyles>platforms</NavLinkStyles>
     <NavLinkStyles>token</NavLinkStyles>
     <NavLinkStyles>partners</NavLinkStyles>

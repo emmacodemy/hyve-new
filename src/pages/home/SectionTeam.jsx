@@ -1,11 +1,15 @@
+import { PrimaryButton } from "componenents/Buttons";
 import {
+  blue,
   ContainerWrapper,
   defaultTheme,
   desktop,
   mobile,
+  neutral,
   tablets,
   team,
 } from "componenents/utils";
+import { useState } from "react";
 import styled from "styled-components";
 
 const SectionTeamContainer = styled(ContainerWrapper)`
@@ -34,8 +38,19 @@ const SectionTeamContainer = styled(ContainerWrapper)`
     grid-template-columns: repeat(2, 1fr);
     row-gap: 30px;
     justify-content: center;
+    padding-bottom: 40px;
     ${desktop} {
       grid-template-columns: repeat(4, 1fr);
+    }
+
+    &.team-blurred {
+      max-height: 400px;
+      overflow: hidden;
+      position: relative;
+
+      ${tablets} {
+        max-height: 460px;
+      }
     }
   }
 
@@ -103,43 +118,82 @@ const SectionTeamContainer = styled(ContainerWrapper)`
       font-weight: 400;
     }
   }
+
+  .team-view-controller {
+    z-index: 20;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      transparent 20%,
+      rgba(256, 256, 256, 0.7) 50%,
+      transparent 50%,
+      transparent
+    );
+  }
 `;
 
-const SectionTeams = () => (
-  <SectionTeamContainer id="team">
-    <h2 data-text="The Team" className="shadowed-title center-text">
-      The Team
-    </h2>
-    <h3 className="section-subtitle">
-      Meet the working bees
-      <img src="/images/beeemoji.png" className="emoji" alt="" />
-    </h3>
-    <div className="teams">
-      {team.map(({ linkedlnUrl, name, position }, index) => (
-        <div className="team-member" key={index}>
-          <div className="team-member__img-container">
-            <a
-              href={linkedlnUrl}
-              className="team-member__link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                src={`/images/${name.split(" ")[0].toLocaleLowerCase()}.jpg`}
-                className="team-member__img"
-                alt={`${name} a member hyve team `}
-              />
-            </a>
-            <div className="image-design"></div>
+const ControlTeamButton = styled(PrimaryButton)`
+  color: ${blue[200]};
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: ${neutral[100]};
+
+  &:hover,
+  &:active {
+    background-color: ${defaultTheme.primaryColor};
+    color: ${neutral[100]};
+  }
+`;
+
+const SectionTeams = () => {
+  const [isFullViewOpen, setIsFullViewOpen] = useState(false);
+  return (
+    <SectionTeamContainer id="team">
+      <h2 data-text="The Team" className="shadowed-title center-text">
+        The Team
+      </h2>
+      <h3 className="section-subtitle">
+        Meet the working bees
+        <img src="/images/beeemoji.png" className="emoji" alt="" />
+      </h3>
+      <div className={`teams ${isFullViewOpen ? "" : "team-blurred"}`}>
+        {team.map(({ linkedlnUrl, name, position }, index) => (
+          <div className="team-member" key={index}>
+            <div className="team-member__img-container">
+              <a
+                href={linkedlnUrl}
+                className="team-member__link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={`/images/${name.split(" ")[0].toLocaleLowerCase()}.jpg`}
+                  className="team-member__img"
+                  alt={`${name} a member hyve team `}
+                />
+              </a>
+              <div className="image-design"></div>
+            </div>
+            <div className="center-text">
+              <h4 className="team-member__name">{name}</h4>
+              <h5 className="team-member__position">{position}</h5>
+            </div>
           </div>
-          <div className="center-text">
-            <h4 className="team-member__name">{name}</h4>
-            <h5 className="team-member__position">{position}</h5>
-          </div>
-        </div>
-      ))}
-    </div>
-  </SectionTeamContainer>
-);
+        ))}
+      </div>
+      <div className="team-view-controller">
+        <ControlTeamButton onClick={() => setIsFullViewOpen(!isFullViewOpen)}>
+          {isFullViewOpen ? "HIDE HYVE TEAM" : "SHOW HYVE TEAM"}
+        </ControlTeamButton>
+      </div>
+    </SectionTeamContainer>
+  );
+};
 
 export default SectionTeams;
