@@ -4,3 +4,4 @@ export * from "./theme";
 export * from "./mediaquery";
 export * from "./wrappers";
 export * from "./Global";
+export * from "./data";

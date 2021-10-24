@@ -4,11 +4,13 @@ import {
   desktop,
   mobile,
   neutral,
+  staticData,
 } from "componenents/utils";
 import styled from "styled-components";
 
 import opportunityLargeImage from "../../assests/images/opportunityLarge.svg";
 import opportunitySmallImage from "../../assests/images/opportunitysmall.svg";
+import opportunityIcon from "../../assests/images/opportunityIcon.svg";
 
 const SectionOpportunityContainer = styled.section`
   position: relative;
@@ -131,6 +133,27 @@ const SectionOpportunityContainer = styled.section`
     }
   }
 
+  .opportunity__header {
+    ${desktop} {
+      font-size: 30px;
+      font-weight: 700;
+      position: relative;
+      text-align: left;
+      padding-left: 24px;
+      overflow: hidden;
+    }
+
+    &::after {
+      ${desktop} {
+        content: attr(data-text);
+        bottom: -2px;
+        z-index: -1;
+        margin-left: 7%;
+        margin-right: 0;
+      }
+    }
+  }
+
   .opportunity__text {
     text-align: center;
     line-height: 2;
@@ -147,6 +170,44 @@ const SectionOpportunityContainer = styled.section`
   .opportunity__list {
     padding: 0 24px;
     padding-top: 32px;
+  }
+
+  .opportunity__item {
+    display: flex;
+    padding-bottom: 24px;
+
+    .opportunity__item-icon {
+      border-radius: 9999px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(198, 128, 63, 0.2);
+      height: 50px;
+      width: 50px;
+
+      img {
+        height: 13px;
+      }
+    }
+
+    .opportunity__item-content {
+      padding-left: 24px;
+    }
+
+    .opportunity__item-title {
+      color: ${defaultTheme.primaryColor};
+      font-weight: 700;
+      padding-bottom: 16px;
+      font-size: 20px;
+    }
+
+    .opportunity__item-subtext {
+      font-size: 14px;
+      font-weight: 400;
+      color: ${defaultTheme.textColor};
+      line-height: 1.75rem;
+    }
   }
 `;
 
@@ -175,14 +236,37 @@ const SectionOpportunity = () => (
     <img src={opportunityLargeImage} className="large-city-svg" alt="" />
     <ContainerWrapper>
       <div className="opportunity-main-content">
-        <h2 className="shadowed-title center-text">The opportunity</h2>
+        <h2
+          data-text="The Opportunity"
+          className="shadowed-title center-text opportunity__header"
+        >
+          The Opportunity
+        </h2>
         <p className="opportunity__text">
           Worldwide research and advisory company Gartner assessed that with
           current platforms not yet ready for the imminent change, people
           starting to work independently will need platforms with functionality
           lacking in current solutions.
         </p>
-        <ul className="opportunity__list"></ul>
+        <ul className="opportunity__list">
+          {staticData.opportunityData.map((opportunity, index) => (
+            <li key={index} className="opportunity__item">
+              <div>
+                <div className="opportunity__item-icon">
+                  <img src={opportunityIcon} alt="" />
+                </div>
+              </div>
+              <div className="opportunity__item-content">
+                <div className="opportunity__item-title">
+                  {opportunity.title}
+                </div>
+                <div className="opportunity__item-subtext">
+                  {opportunity.text}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </ContainerWrapper>
   </SectionOpportunityContainer>
