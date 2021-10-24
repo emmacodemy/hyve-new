@@ -85,7 +85,7 @@ const SectionOpportunityContainer = styled.section`
       padding-bottom: 8px;
       font-weight: 700;
 
-      .white {
+      &.white {
         color: ${neutral[100]};
       }
     }
@@ -97,11 +97,11 @@ const SectionOpportunityContainer = styled.section`
       padding-bottom: 8px;
       font-weight: 700;
 
-      .white {
+      &.white {
         color: ${neutral[100]};
       }
 
-      .no-padding {
+      &.no-padding {
         padding: 0;
       }
     }
@@ -118,8 +118,8 @@ const SectionOpportunityContainer = styled.section`
   .large-city-svg {
     display: none;
     position: absolute;
-    right: 2%;
-    top: 10%;
+    right: -9%;
+    bottom: -10%;
 
     ${desktop} {
       display: block;
@@ -216,7 +216,7 @@ const SectionOpportunity = () => (
     <div className="mobile-market">
       <div className="mobile-market__counter">
         <div className="mobile-market__inner">
-          <p className="mobile-market_value">
+          <p className="mobile-market__value">
             $<span id="count-up-box-market-value">350</span>B
           </p>
           <p className="mobile-market__title">ESTIMATED MARKET SIZE</p>
@@ -224,11 +224,11 @@ const SectionOpportunity = () => (
         </div>
       </div>
       <div className="mobile-market__size">
-        <div className="mobile-market__inner">
+        <div className="mobile-market-size__inner">
           <p className="mobile-market__value white">
             $<span id="count-up-box-market-size">100</span>B
           </p>{" "}
-          <p className="mobile-market__title">CURRENT MARKET SIZE</p>
+          <p className="mobile-market__title white no-padding">CURRENT MARKET SIZE</p>
         </div>
       </div>
     </div>
