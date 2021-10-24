@@ -116,8 +116,8 @@ const SectionOpportunityContainer = styled.section`
   .large-city-svg {
     display: none;
     position: absolute;
-    right: -9%;
-    bottom: -10%;
+    right: 2%;
+    top: 10%;
 
     ${desktop} {
       display: block;
