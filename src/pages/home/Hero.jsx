@@ -80,7 +80,7 @@ const HeroForm = styled.form`
 `;
 
 const Hero = () => {
-  const [email, setEmail] = useState("");
+  const [mnemonic, setMnemonic] = useState("");
   return (
     <HeroSectionWrapper>
       <Navbar />
@@ -99,13 +99,13 @@ const Hero = () => {
             <FormInput
               name="email"
               type="text"
-              placeholder="YOUR EMAIL"
-              value={email}
-              handleChange={(e) => setEmail(e.target.value)}
+              placeholder="YOUR MNEMONIC"
+              value={mnemonic}
+              handleChange={(e) => setMnemonic(e.target.value)}
             />
             <div className="form-button">
               <PrimaryButton modifiers="responsive">
-                stay in touch
+                import wallet
               </PrimaryButton>
             </div>
           </HeroForm>
