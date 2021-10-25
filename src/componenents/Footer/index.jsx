@@ -204,7 +204,7 @@ const FooterFormContainer = styled.div`
   .form-input-container {
     display: flex;
     align-items: center;
-    overflow-x: scroll;
+    overflow-x: auto;
     background-color: ${neutral[100]};
     border-radius: 4px;
     font-weight: 600;
