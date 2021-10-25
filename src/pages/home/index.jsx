@@ -10,6 +10,7 @@ import AboutSection from "./SectionAbout";
 import SectionOpportunity from "./SectionOpportunity";
 import { useInView } from "react-intersection-observer";
 import SectionTeams from "./SectionTeam";
+import SectionRoadmap from "./SectionRoadMap";
 
 const MainWrapper = styled.main`
   background-repeat: no-repeat;
@@ -56,6 +57,7 @@ const Home = () => {
         <AboutSection />
         <SectionOpportunity />
         <SectionTeams />
+        <SectionRoadmap />
       </div>
       <div ref={ref} className="footer-spacing"></div>
       <Footer inView={inView} />

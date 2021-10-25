@@ -100,6 +100,10 @@ export const GlobalStyle = createGlobalStyle`
         text-align: center;
     }
 
+    block {
+      display: block;
+    }
+
     @keyframes fadeIn {
       from {
         opacity: 0; 
