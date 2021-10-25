@@ -15,7 +15,7 @@ const RoadmapContainer = styled.section`
   position: relative;
   top: -1px;
   background-image: linear-gradient(90deg, #db4b2f, #ef8333);
-  overflow-x: hidden;
+  overflow: hidden;
   .roadmap-background {
     position: absolute;
     right: 0;

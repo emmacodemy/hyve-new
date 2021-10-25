@@ -14,7 +14,6 @@ import opportunityIcon from "../../assests/images/opportunityIcon.svg";
 
 const SectionOpportunityContainer = styled.section`
   position: relative;
-  overflow-x: hidden;
 
   .mobile-market {
     .mobile-market__counter,
