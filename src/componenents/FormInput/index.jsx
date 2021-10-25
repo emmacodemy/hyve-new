@@ -1,4 +1,4 @@
-import { defaultTheme, neutral, tablets } from "componenents/utils";
+import { defaultTheme, neutral } from "componenents/utils";
 import styled from "styled-components";
 
 const FormInputWithStyles = styled.input`
