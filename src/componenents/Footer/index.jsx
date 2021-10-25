@@ -15,18 +15,17 @@ import styled from "styled-components";
 import footerBackground from "../../assests/images/footersvg.svg";
 
 const FooterContainer = styled.footer`
-  display: none;
   padding-top: 64px;
   padding-bottom: 32px;
+  position: relative;
   background: ${defaultTheme.darkBackground};
   background-image: url(${footerBackground});
   background-image: url(${footerBackground}),
     linear-gradient(90deg, #1f3d53, #2f5572);
   background-size: 40vw, cover;
   width: 100%;
-  position: fixed;
   bottom: 0;
-  opacity: 0;
+  opacity: 1;
 
   ${tablets} {
     background-position-x: -14%;
@@ -40,6 +39,7 @@ const FooterContainer = styled.footer`
   .footer-rights {
     margin: 0 auto;
     margin-top: 32px;
+    text-align: center;
 
     div {
       font-size: 14px;
@@ -55,7 +55,7 @@ const FootInnerContainer = styled(ContainerWrapper)`
   position: relative;
   z-index: 50;
 
-  div:first-child {
+  .footer-main-content {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -92,15 +92,15 @@ const FooterBrandContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  order: 1;
 
   ${mobile} {
     flex-direction: row;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
   }
 
   ${tablets} {
     display: block;
-    margin-bottom: 48px;
     width: 50%;
   }
 
@@ -126,6 +126,9 @@ const FooterBrandContainer = styled.div`
   .brand-address-container {
     padding-top: 0;
     text-align: center;
+    line-height: 2;
+    color: ${defaultTheme.textColorOnDarkBackGround};
+    font-size: 14px;
 
     ${mobile} {
       text-align: left;
@@ -150,6 +153,12 @@ const FooterBrandContainer = styled.div`
 
 const FooterFormContainer = styled.div`
   width: 100%;
+  order: 1;
+
+  ${mobile} {
+    order: 2;
+    padding-bottom: 48px;
+  }
 
   ${tablets} {
     width: 50%;
@@ -160,13 +169,15 @@ const FooterFormContainer = styled.div`
     margin-left: 16px;
   }
 
-  /* ${largeDesktop} {
-        width: auto;
-        margin: 0;
-    } */
+  ${largeDesktop} {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
 
   h3 {
     color: ${neutral[100]};
+    margin-bottom: 24px;
     display: none;
 
     ${tablets} {
@@ -179,6 +190,15 @@ const FooterFormContainer = styled.div`
     justify-content: space-between;
     margin: 0 auto;
     width: 100%;
+    border-radius: 4px;
+    background-color: ${neutral[100]};
+    padding: 4px;
+    border-radius: 4px;
+
+    ${desktop} {
+      background-color: transparent;
+      padding: 0;
+    }
   }
 
   .form-input-container {
@@ -188,7 +208,7 @@ const FooterFormContainer = styled.div`
     background-color: ${neutral[100]};
     border-radius: 4px;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 14px;
     width: 75%;
   }
 `;
@@ -199,6 +219,16 @@ const FooterInput = styled(FormInput)`
   padding-left: 16px;
   padding-top: 12px;
   padding-bottom: 12px;
+
+  ${desktop} {
+    background-color: ${neutral[100]};
+    padding: 24px 32px;
+    border-radius: 4px;
+    width: 450px;
+    border-style: none;
+    width: 450px;
+    color: #1f3d53;
+  }
 `;
 
 const FooterButton = styled(PrimaryButton)`
@@ -206,26 +236,31 @@ const FooterButton = styled(PrimaryButton)`
   padding: 12px;
   border-radius: 4px;
   font-size: 14px;
+
+  ${desktop} {
+    padding: 24px 40px;
+    margin-left: 20px;
+  }
 `;
 
 const Footer = ({ inView }) => {
   const [email, setEmail] = useState("");
   return (
-    <FooterContainer style={{ opacity: inView ? 1 : 0 }}>
+    <FooterContainer>
       <FootInnerContainer>
-        <div>
+        <div className="footer-main-content">
           <FooterBrandContainer>
             <div className="brand-svg">
               <Logo />
-              <div className="brand-address-container">
-                <div className="brand-address">
-                  <p>HYVE Ltd.</p> <p>First Floor, Providence Complex</p>
-                  <p>Providence, Mahe, Seychelles</p>
-                </div>
-                <div className="brand-address-mobile">
-                  <p>HYVE Ltd. First Floor, Providence Complex</p>
-                  <p>Providence, Mahe,</p> <p> Seychelles</p>
-                </div>
+            </div>
+            <div className="brand-address-container">
+              <div className="brand-address">
+                <p>HYVE Ltd.</p> <p>First Floor, Providence Complex</p>
+                <p>Providence, Mahe, Seychelles</p>
+              </div>
+              <div className="brand-address-mobile">
+                <p>HYVE Ltd. First Floor, Providence Complex</p>
+                <p>Providence, Mahe,</p> <p> Seychelles</p>
               </div>
             </div>
           </FooterBrandContainer>
@@ -240,12 +275,12 @@ const Footer = ({ inView }) => {
                   value={email}
                   handleChange={(e) => setEmail(e.target.value)}
                 />
-                <FooterButton />
               </div>
+              <FooterButton>SUBMIT</FooterButton>
             </form>
           </FooterFormContainer>
           <div className="side-image-container">
-            <img src="/nuxt/a1d6a36.svg" alt="" />
+            <img src="/images/etherum.svg" alt="" />
           </div>
         </div>
         <div className="footer-rights">

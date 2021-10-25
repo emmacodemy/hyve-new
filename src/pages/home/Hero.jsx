@@ -79,6 +79,16 @@ const HeroForm = styled.form`
   }
 `;
 
+const HeroFormInput = styled(FormInput)`
+  border-radius: 8px;
+  border-width: 2px;
+  margin-bottom: 24px;
+
+  ${tablets} {
+    width: 60%;
+  }
+`;
+
 const Hero = () => {
   const [mnemonic, setMnemonic] = useState("");
   return (
@@ -96,7 +106,7 @@ const Hero = () => {
         </p>
         <HeroFormContainer>
           <HeroForm>
-            <FormInput
+            <HeroFormInput
               name="email"
               type="text"
               placeholder="YOUR MNEMONIC"

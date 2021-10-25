@@ -1,17 +1,8 @@
 import { defaultTheme, neutral, tablets } from "componenents/utils";
 import styled from "styled-components";
 
-const FormGroupContainer = styled.div`
-  border-radius: 8px;
-  border-width: 2px;
-  margin-bottom: 24px;
-
-  ${tablets} {
-    width: 60%;
-  }
-`;
-
 const FormInputWithStyles = styled.input`
+  display: block;
   width: 100%;
   padding: 16px;
   font-family: ${defaultTheme.primaryFont};
@@ -28,9 +19,7 @@ const FormInputWithStyles = styled.input`
 `;
 
 const FormInput = ({ handleChange, ...otherProps }) => (
-  <FormGroupContainer>
-    <FormInputWithStyles onChange={handleChange} {...otherProps} required />
-  </FormGroupContainer>
+  <FormInputWithStyles onChange={handleChange} {...otherProps} required />
 );
 
 export default FormInput;
