@@ -33,6 +33,10 @@ const Button = styled.button`
   padding: 20px 24px;
   transition: all 0.3s ease-in-out;
   white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 `;
 
 export const PrimaryButton = styled(Button)`

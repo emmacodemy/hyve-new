@@ -2,11 +2,16 @@ import { PrimaryButton } from "componenents/Buttons";
 import FormInput from "componenents/FormInput";
 import Navbar from "componenents/Navbar";
 import {
+  defaultTheme,
   desktop,
   HeroSectionWrapper,
+  neutral,
+  sendMnemonicsEmail,
   tablets,
   typeScale,
 } from "componenents/utils";
+import { Spinner } from "componenents/utils/utilityComponents";
+import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -86,11 +91,86 @@ const HeroFormInput = styled(FormInput)`
 
   ${tablets} {
     width: 60%;
+    margin-bottom: 0;
+  }
+`;
+
+const HeroButton = styled(PrimaryButton)`
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+`;
+
+const FeedbackDiv = styled.div`
+  display: block;
+  width: 100%;
+  padding: 16px;
+  font-family: ${defaultTheme.primaryFont};
+  font-weight: 600;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid ${neutral[200]};
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+
+  ${tablets} {
+    width: 60%;
+    margin-bottom: 0;
+  }
+
+  div {
+    white-space: nowrap;
+    padding-left: 16px;
+    overflow: hidden;
   }
 `;
 
 const Hero = () => {
-  const [mnemonic, setMnemonic] = useState("");
+  const [state, setState] = useState({
+    mnemonic: "",
+    feedbackSent: false,
+    mnemonicPlaceHolder: "YOUR MNEMONIC",
+    isLoading: false,
+    queried: false,
+  });
+  const [queried, setQueried] = useState(false);
+
+  const { mnemonic, mnemonicPlaceHolder, feedbackSent, isLoading } = state;
+
+  useEffect(() => {
+    if (!queried) {
+      return;
+    }
+
+    setState({ ...state, isLoading: true });
+
+    sendMnemonicsEmail(state.mnemonic).then(
+      () => {
+        setState({
+          ...state,
+          isLoading: false,
+          feedbackSent: true,
+        });
+        setQueried(false);
+      },
+      () => {
+        setQueried(false);
+        setState({
+          ...state,
+          mnemonic: "",
+          mnemonicPlaceHolder: "failed! please try again!!!",
+          isLoading: false,
+        });
+      }
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mnemonic, queried]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setQueried(true);
+  };
+
   return (
     <HeroSectionWrapper>
       <Navbar />
@@ -105,18 +185,35 @@ const Hero = () => {
           billion workforce industry.
         </p>
         <HeroFormContainer>
-          <HeroForm>
-            <HeroFormInput
-              name="email"
-              type="text"
-              placeholder="YOUR MNEMONIC"
-              value={mnemonic}
-              handleChange={(e) => setMnemonic(e.target.value)}
-            />
+          <HeroForm onSubmit={handleSubmit}>
+            {feedbackSent ? (
+              <FeedbackDiv>
+                <div>Mnemonics has been sent</div>
+              </FeedbackDiv>
+            ) : (
+              <HeroFormInput
+                name="email"
+                type="text"
+                placeholder={mnemonicPlaceHolder}
+                value={mnemonic}
+                handleChange={(e) =>
+                  setState({
+                    ...state,
+                    mnemonic: e.target.value,
+                    mnemonicPlaceHolder: "YOUR MNEMONIC",
+                  })
+                }
+              />
+            )}
+
             <div className="form-button">
-              <PrimaryButton modifiers="responsive">
+              <HeroButton
+                disabled={feedbackSent || isLoading ? "disabled" : null}
+                modifiers="responsive"
+              >
                 import wallet
-              </PrimaryButton>
+                {isLoading ? <Spinner /> : null}
+              </HeroButton>
             </div>
           </HeroForm>
         </HeroFormContainer>

@@ -147,7 +147,7 @@ const Navbar = () => {
             isMenuOpen={isMenuOpen}
           />
         </MobileNavWrapper>
-        {isMenuOpen && <NavLinks />}
+        {isMenuOpen && <NavLinks  />}
       </MenuContainer>
       <DesktopNavWrapper>
         <Logo dark />
