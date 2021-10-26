@@ -61,6 +61,7 @@ const Home = () => {
         <SectionTeams />
         <SectionRoadmap />
       </MainContentWrapper>
+      
       <div ref={ref} className="footer-spacing"></div>
       <Footer inView={inView} />
     </MainWrapper>
