@@ -6,4 +6,4 @@ export * from "./wrappers";
 export * from "./Global";
 export * from "./data";
 export * from "./utilityComponents";
-export * from "./client";
+export * from "./email";
