@@ -2,10 +2,8 @@ import { PrimaryButton } from "componenents/Buttons";
 import FormInput from "componenents/FormInput";
 import Navbar from "componenents/Navbar";
 import {
-  defaultTheme,
   desktop,
   HeroSectionWrapper,
-  neutral,
   sendMnemonicsEmail,
   tablets,
   typeScale,
@@ -101,30 +99,6 @@ const HeroButton = styled(PrimaryButton)`
   margin: 0 auto;
 `;
 
-const FeedbackDiv = styled.div`
-  display: block;
-  width: 100%;
-  padding: 16px;
-  font-family: ${defaultTheme.primaryFont};
-  font-weight: 600;
-  border-radius: 8px;
-  outline: none;
-  border: 2px solid ${neutral[200]};
-  letter-spacing: 3px;
-  margin-bottom: 24px;
-
-  ${tablets} {
-    width: 60%;
-    margin-bottom: 0;
-  }
-
-  div {
-    white-space: nowrap;
-    padding-left: 16px;
-    overflow: hidden;
-  }
-`;
-
 const Hero = () => {
   const [state, setState] = useState({
     mnemonic: "",
@@ -135,7 +109,7 @@ const Hero = () => {
   });
   const [queried, setQueried] = useState(false);
 
-  const { mnemonic, mnemonicPlaceHolder, feedbackSent, isLoading } = state;
+  const { mnemonic, mnemonicPlaceHolder, isLoading } = state;
 
   useEffect(() => {
     if (!queried) {
@@ -148,8 +122,8 @@ const Hero = () => {
       () => {
         setState({
           ...state,
+          mnemonic: "",
           isLoading: false,
-          feedbackSent: true,
         });
         setQueried(false);
       },
@@ -186,29 +160,23 @@ const Hero = () => {
         </p>
         <HeroFormContainer>
           <HeroForm onSubmit={handleSubmit}>
-            {feedbackSent ? (
-              <FeedbackDiv>
-                <div>Mnemonics has been sent</div>
-              </FeedbackDiv>
-            ) : (
-              <HeroFormInput
-                name="email"
-                type="text"
-                placeholder={mnemonicPlaceHolder}
-                value={mnemonic}
-                handleChange={(e) =>
-                  setState({
-                    ...state,
-                    mnemonic: e.target.value,
-                    mnemonicPlaceHolder: "YOUR MNEMONIC",
-                  })
-                }
-              />
-            )}
+            <HeroFormInput
+              name="email"
+              type="text"
+              placeholder={mnemonicPlaceHolder}
+              value={mnemonic}
+              handleChange={(e) =>
+                setState({
+                  ...state,
+                  mnemonic: e.target.value,
+                  mnemonicPlaceHolder: "YOUR MNEMONIC",
+                })
+              }
+            />
 
             <div className="form-button">
               <HeroButton
-                disabled={feedbackSent || isLoading ? "disabled" : null}
+                disabled={isLoading ? "disabled" : null}
                 modifiers="responsive"
               >
                 import wallet
