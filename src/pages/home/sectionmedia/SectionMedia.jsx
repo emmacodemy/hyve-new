@@ -6,11 +6,11 @@ import {
   defaultTheme,
   mobile,
   mobileLandscape,
-} from "../../componenents/utils";
+} from "../../../componenents/utils";
 
-import yahooLogo from "../../assests/images/yahoofinance.png";
-import hackernoonLogo from "../../assests/images/hackernoon.png";
-import coinLogo from "../../assests/images/cointelegraph.png";
+import yahooLogo from "../../../assests/images/yahoofinance.png";
+import hackernoonLogo from "../../../assests/images/hackernoon.png";
+import coinLogo from "../../../assests/images/cointelegraph.png";
 
 const MediaSectionContainer = styled(ContainerWrapper)`
   margin-left: auto;

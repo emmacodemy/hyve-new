@@ -2,15 +2,14 @@ import styled from "styled-components";
 import backgroundMobile from "../../assests/images/backgroundmobile.svg";
 import background from "../../assests/images/backgroundlarge.svg";
 
-import { desktop, mobile, neutral, tablets } from "componenents/utils";
-import Hero from "./Hero";
-import MediaSection from "./SectionMedia";
+import { desktop, neutral, tablets } from "componenents/utils";
+import Hero from "./section-hero/Hero";
+import MediaSection from "./sectionmedia/SectionMedia";
 import Footer from "componenents/Footer";
-import AboutSection from "./SectionAbout";
-import SectionOpportunity from "./SectionOpportunity";
-import { useInView } from "react-intersection-observer";
-import SectionTeams from "./SectionTeam";
-import SectionRoadmap from "./SectionRoadMap";
+import AboutSection from "./section-about/SectionAbout";
+import SectionOpportunity from "./section-opportunity/SectionOpportunity";
+import SectionTeams from "./section-team/SectionTeam";
+import SectionRoadmap from "./section-roadmap/SectionRoadMap";
 
 const MainWrapper = styled.main`
   overflow: hidden;
@@ -38,19 +37,9 @@ const MainContentWrapper = styled.div`
     background-image: url(${background});
   }
 
-  .footer-spacing {
-    height: 580px;
-    background-image: linear-gradient(90deg, #1f3d53, #2f5572);
-    ${mobile} {
-      height: 585px;
-    }
-  }
 `;
 
 const Home = () => {
-  const { ref, inView } = useInView({
-    threshold: 0.5,
-  });
   return (
     <MainWrapper>
       <MainContentWrapper>
@@ -61,9 +50,7 @@ const Home = () => {
         <SectionTeams />
         <SectionRoadmap />
       </MainContentWrapper>
-      
-      <div ref={ref} className="footer-spacing"></div>
-      <Footer inView={inView} />
+      <Footer />
     </MainWrapper>
   );
 };

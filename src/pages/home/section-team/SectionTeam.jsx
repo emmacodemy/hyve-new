@@ -7,10 +7,10 @@ import {
   mobile,
   neutral,
   tablets,
-  team,
 } from "componenents/utils";
 import { useState } from "react";
 import styled from "styled-components";
+import { team } from "../../../utils/data";
 
 const SectionTeamContainer = styled(ContainerWrapper)`
   display: relative;

@@ -4,13 +4,13 @@ import {
   desktop,
   mobile,
   neutral,
-  staticData,
 } from "componenents/utils";
 import styled from "styled-components";
 
-import opportunityLargeImage from "../../assests/images/opportunityLarge.svg";
-import opportunitySmallImage from "../../assests/images/opportunitysmall.svg";
-import opportunityIcon from "../../assests/images/opportunityIcon.svg";
+import opportunityLargeImage from "../../../assests/images/opportunityLarge.svg";
+import opportunitySmallImage from "../../../assests/images/opportunitysmall.svg";
+import opportunityIcon from "../../../assests/images/opportunityIcon.svg";
+import { opportunities } from "../../../utils/data";
 
 const SectionOpportunityContainer = styled.section`
   position: relative;
@@ -252,7 +252,7 @@ const SectionOpportunity = () => {
             functionality lacking in current solutions.
           </p>
           <ul className="opportunity__list">
-            {staticData.opportunityData.map((opportunity, index) => (
+            {opportunities.map((opportunity, index) => (
               <li key={index} className={`opportunity__item`}>
                 <div>
                   <div className="opportunity__item-icon">

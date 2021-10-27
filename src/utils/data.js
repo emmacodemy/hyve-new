@@ -89,7 +89,18 @@ export const staticData = {
       position: "Advisor",
     },
   ],
+  aboutData: [
+    "Governed by the Community, using crowd wisdom.",
+    "Protocol Enabled, for a whole new realm of tasks.",
+    "Fee Sharing, with 100% available to token holders.",
+    "Decentralized Teams, for trustless collaboration.",
+    "9/5 Jobs, bringing recruiting agencies to the 21st century.",
+    "Offers, allowing you to sell your service packages.",
+    "Agents, getting rewarded for finding candidates.",
+    "P2P Legal Agreements, making sure that NDA is valid.",
+  ],
 };
 
 export const team = staticData.team;
 export const opportunities = staticData.opportunityData;
+export const about = staticData.aboutData;

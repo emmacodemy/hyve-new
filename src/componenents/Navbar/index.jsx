@@ -10,7 +10,7 @@ import {
 import Logo from "../Logo/index.jsx";
 import menuBackgroundImg from "../../assests/images/menubackground.svg";
 import { SecondaryButton } from "../Buttons";
-import Hamburger from "./Hamburger.js";
+import Hamburger from "./hambuger/Hamburger.js";
 import { Link } from "react-scroll";
 
 const MenuContainer = styled.div`

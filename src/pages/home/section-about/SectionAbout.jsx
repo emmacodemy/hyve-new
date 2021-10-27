@@ -8,10 +8,10 @@ import {
   tablets,
 } from "componenents/utils";
 import styled from "styled-components";
-import largeAboutImage from "../../assests/images/aboutLarge.svg";
-import aboutSmallImage from "../../assests/images/aboutSmall.svg";
-import hyveFeatureIcon from "../../assests/images/featureImg.svg";
-import hyveFeatureLine from "../../assests/images/featureline.svg";
+import { about } from "utils";
+import largeAboutImage from "../../../assests/images/aboutLarge.svg";
+import aboutSmallImage from "../../../assests/images/aboutSmall.svg";
+import hyveFeatureLine from "../../../assests/images/featureline.svg";
 
 const AboutSectionWrapper = styled.section`
   position: relative;
@@ -127,13 +127,13 @@ const AboutSectionWrapper = styled.section`
   .hyve-features {
     padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
     justify-content: center;
     align-items: center;
 
     ${desktop} {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
     }
 
     ${desktop} {
@@ -153,6 +153,11 @@ const AboutSectionWrapper = styled.section`
     .hyve-feature__icon {
       padding: 0 24px;
       margin: 25px auto;
+
+      img {
+        height: 110px !important;
+        margin: auto;
+      }
     }
 
     .hyve-feature__text {
@@ -211,94 +216,17 @@ const AboutSection = () => (
           </p>
         </div>
         <div className="hyve-features">
-          <div className="hyve-feature">
-            <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} alt="" />
+          {about.map((feature, index) => (
+            <div className="hyve-feature">
+              <div className="hyve-feature__icon">
+                <img src={`images/about${index + 1}.svg`} alt="" />
+              </div>
+              <div className="hyve-feature__text">{feature}</div>
+              <div className="hyve-feature__line">
+                <img src={hyveFeatureLine} alt="" />
+              </div>
             </div>
-            <div className="hyve-feature__text">
-              Protocol Enabled, for a whole new realm of tasks.
-            </div>
-            <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} alt="" />
-            </div>
-          </div>
-          <div className="hyve-feature">
-            <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} alt="" />
-            </div>
-            <div className="hyve-feature__text">
-              Protocol Enabled, for a whole new realm of tasks.
-            </div>
-            <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} alt="" />
-            </div>
-          </div>
-          <div className="hyve-feature">
-            <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} alt="" />
-            </div>
-            <div className="hyve-feature__text">
-              Protocol Enabled, for a whole new realm of tasks.
-            </div>
-            <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} alt="" />
-            </div>
-          </div>
-          <div className="hyve-feature">
-            <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} alt="" />
-            </div>
-            <div className="hyve-feature__text">
-              Protocol Enabled, for a whole new realm of tasks.
-            </div>
-            <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} alt="" />
-            </div>
-          </div>
-          <div className="hyve-feature">
-            <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} alt="" />
-            </div>
-            <div className="hyve-feature__text">
-              Protocol Enabled, for a whole new realm of tasks.
-            </div>
-            <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} alt="" />
-            </div>
-          </div>
-          <div className="hyve-feature">
-            <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} alt="" />
-            </div>
-            <div className="hyve-feature__text">
-              Protocol Enabled, for a whole new realm of tasks.
-            </div>
-            <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} alt="" />
-            </div>
-          </div>
-          <div className="hyve-feature">
-            <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} alt="" />
-            </div>
-            <div className="hyve-feature__text">
-              Protocol Enabled, for a whole new realm of tasks.
-            </div>
-            <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} alt="" />
-            </div>
-          </div>
-          <div className="hyve-feature">
-            <div className="hyve-feature__icon">
-              <img src={hyveFeatureIcon} alt="" />
-            </div>
-            <div className="hyve-feature__text">
-              Protocol Enabled, for a whole new realm of tasks.
-            </div>
-            <div className="hyve-feature__line">
-              <img src={hyveFeatureLine} alt="" />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </ContainerWrapper>

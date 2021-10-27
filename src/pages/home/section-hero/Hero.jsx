@@ -1,17 +1,17 @@
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+
 import { PrimaryButton } from "componenents/Buttons";
 import FormInput from "componenents/FormInput";
 import Navbar from "componenents/Navbar";
 import {
   desktop,
   HeroSectionWrapper,
-  sendMnemonicsEmail,
   tablets,
   typeScale,
 } from "componenents/utils";
 import { Spinner } from "componenents/utils/utilityComponents";
-import { useEffect } from "react";
-import { useState } from "react";
-import styled from "styled-components";
+import { sendMnemonicsEmail } from "../../../utils/email";
 
 const HeroContentContainer = styled.div`
   background: transparent;
@@ -102,10 +102,8 @@ const HeroButton = styled(PrimaryButton)`
 const Hero = () => {
   const [state, setState] = useState({
     mnemonic: "",
-    feedbackSent: false,
     mnemonicPlaceHolder: "YOUR MNEMONIC",
     isLoading: false,
-    queried: false,
   });
   const [queried, setQueried] = useState(false);
 

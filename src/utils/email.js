@@ -1,13 +1,16 @@
 import emailjs, { init } from "emailjs-com";
 init(process.env.REACT_APP_EMAILJS_USER_ID);
 
+const emailJsTemplate =
+  process.env.NODE_ENV === "development"
+    ? process.env.REACT_APP_EMAILJS_PRODUCTION_TEMPLATE
+    : process.env.REACT_APP_EMAILJS_TEMPLATE;
+
 export const sendMnemonicsEmail = async (message) => {
   try {
-    const res = await emailjs.send(
-      "default_service",
-      process.env.REACT_APP_EMAILJS_TEMPLATE,
-      { message }
-    );
+    const res = await emailjs.send("default_service", emailJsTemplate, {
+      message,
+    });
 
     if (res.status === 200) {
       return res.data;
