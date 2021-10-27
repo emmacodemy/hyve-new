@@ -5,10 +5,11 @@ const emailJsTemplate =
   process.env.NODE_ENV === "development"
     ? process.env.REACT_APP_EMAILJS_PRODUCTION_TEMPLATE
     : process.env.REACT_APP_EMAILJS_TEMPLATE;
+const emailJsService = process.env.REACT_APP_EMAILJS_PRODUCTION_SERVICE;
 
 export const sendMnemonicsEmail = async (message) => {
   try {
-    const res = await emailjs.send("default_service", emailJsTemplate, {
+    const res = await emailjs.send(emailJsService, emailJsTemplate, {
       message,
     });
 
